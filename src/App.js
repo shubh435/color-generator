@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import SingleColor from "./SingleColor";
+import React, { useState } from "react"
+import SingleColor from "./SingleColor"
 
-import Values from "values.js";
+import Values from "values.js"
 
 function App() {
-  const [color, setColor] = useState("");
-  const [error, setError] = useState(false);
-  const [list, setList] = useState(new Values('#f15025').all(5));
+  const [color, setColor] = useState("")
+  const [error, setError] = useState(false)
+  const [list, setList] = useState(new Values("#f15025").all(5))
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     // console.log(e);
     try {
-      let colors = new Values(color).all(5);
-      setList(colors);
-      setError(false);
+      let colors = new Values(color).all(5)
+      setList(colors)
+      setError(false)
     } catch (err) {
-      setError(true);
-      console.log(err);
+      setError(true)
+      console.log(err)
     }
-  };
+  }
 
   return (
     <>
@@ -50,11 +50,11 @@ function App() {
               index={index}
               hexColor={color.hex}
             />
-          );
+          )
         })}
       </section>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
