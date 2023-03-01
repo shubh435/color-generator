@@ -1,31 +1,35 @@
-import React, { useState } from "react";
-import SingleColor from "./SingleColor";
+import React, { useEffect, useRef, useState } from "react"
+import SingleColor from "./SingleColor"
 
-import Values from "values.js";
+import Values from "values.js"
 
 function App() {
-  const [color, setColor] = useState("");
-  const [error, setError] = useState(false);
-  const [list, setList] = useState(new Values('#f15025').all(5));
+  const [color, setColor] = useState("")
+  const [error, setError] = useState(false)
+  const [list, setList] = useState(new Values("#f15025").all(5))
+  const inputRef = useRef()
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     // console.log(e);
     try {
-      let colors = new Values(color).all(5);
-      setList(colors);
-      setError(false);
+      let colors = new Values(color).all(5)
+      setList(colors)
+      setError(false)
     } catch (err) {
-      setError(true);
-      console.log(err);
+      setError(true)
+      console.log(err)
     }
-  };
+  }
 
+  useEffect(() => {
+    console.log({ inputRef: inputRef })
+  }, [])
   return (
     <>
       <section className="container">
-        <h3>Color generator</h3>
         <form onSubmit={handleSubmit}>
           <input
+            ref={inputRef}
             type="text"
             name="number "
             id="number"
@@ -38,10 +42,13 @@ function App() {
             submit
           </button>
         </form>
+        <h3 className="mainFont">
+          Color generator
+        </h3>
       </section>
 
       <section className="colors">
-        <h4>llist goes here</h4>
+        <h4 style={{ textAlign:'center'}}>list goes here</h4>
         {list.map((color, index) => {
           return (
             <SingleColor
@@ -50,11 +57,11 @@ function App() {
               index={index}
               hexColor={color.hex}
             />
-          );
+          )
         })}
       </section>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
