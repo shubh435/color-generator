@@ -221,7 +221,7 @@ input.error {
   font-size: 1rem;
   text-transform: none;
   position: relative;
-  min-height: 150px;
+  min-height: 120px;
 }
 
 .percent-value {
@@ -247,7 +247,7 @@ input.error {
   font-size: 0.85rem;
   margin-top: 0.5rem;
   position: absolute;
-  bottom: 0;
+  bottom: -1rem;
   /* left: 50%; */
 
 
