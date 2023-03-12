@@ -10,7 +10,6 @@ function App() {
   const inputRef = useRef()
   const handleSubmit = (e) => {
     e.preventDefault()
-    // console.log(e);
     try {
       let colors = new Values(color).all(5)
       setList(colors)
