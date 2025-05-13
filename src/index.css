@@ -163,6 +163,9 @@ Color Generator
   align-items: center;
   height: 100px;
   padding-left: 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .container h3 {
@@ -191,6 +194,18 @@ input {
 }
 
 @media screen and (max-width: 576px) {
+  .container{
+flex-direction: column;
+justify-content: space-around;
+  }
+  .container form{
+display: flex;
+width: 80% !important;
+align-items: center;
+  }
+  .container form input{
+width: 100%;
+  }
   .container h3 {
     font-size: 1rem;
   }
@@ -282,3 +297,16 @@ input.error {
 .container form {
   width: 50%;
 }
+
+@media (max-width: 400px) {
+  .container h3 {
+    font-size: 0.5em;
+  }
+
+  input,
+  .btn {
+    font-size: 0.45rem;
+  }
+}
+
+
